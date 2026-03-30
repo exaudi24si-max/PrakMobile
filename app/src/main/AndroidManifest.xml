@@ -12,10 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExaudiApps">
         <activity
-            android:name=".MainActivity"
+            android:name=".pertemuan3.ThirdResultctivity"
             android:exported="false" />
         <activity
             android:name=".pertemuan2.SecondActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pertemuan3.ThidActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
