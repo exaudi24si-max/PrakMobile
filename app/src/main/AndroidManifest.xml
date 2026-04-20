@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExaudiApps">
         <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".pertemuan4.FourthActivity"
             android:exported="true" />
         <activity
@@ -24,7 +27,7 @@
             android:name=".pertemuan3.ThidActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".pertemuan6.AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
