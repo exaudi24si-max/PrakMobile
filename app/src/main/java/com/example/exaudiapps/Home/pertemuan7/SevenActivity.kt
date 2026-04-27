@@ -1,6 +1,7 @@
 package com.example.exaudiapps.pertemuan7
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,33 +11,27 @@ import com.example.exaudiapps.R
 import com.example.exaudiapps.databinding.ActivitySevenBinding
 
 class SevenActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivitySevenBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        
-        // Inisialisasi View Binding
         binding = ActivitySevenBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        // Setup Toolbar dengan tombol back
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        binding.toolbar.setNavigationOnClickListener {
-            onBackPressedDispatcher.onBackPressed()
-        }
-
+        
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Tampilkan Fragment 1 saat pertama kali dibuka
-        replaceFragment(SatuFragment())
+        // Menampilkan fragment pertama secara default jika ini pertama kali activity dibuat
+        if (savedInstanceState == null) {
+            replaceFragment(SatuFragment())
+        }
 
-        // Klik listener untuk pindah fragment
+        // Setup event click untuk mengganti fragment
         binding.btnFragment1.setOnClickListener {
             replaceFragment(SatuFragment())
         }
@@ -48,13 +43,29 @@ class SevenActivity : AppCompatActivity() {
         binding.btnFragment3.setOnClickListener {
             replaceFragment(TigaFragment())
         }
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.apply {
+            title = "Seventh Activity"
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
     }
 
-    // Fungsi untuk mengganti fragment di dalam container
     private fun replaceFragment(fragment: Fragment) {
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_container, fragment)
-        fragmentTransaction.commit()
+        supportFragmentManager.beginTransaction()
+            .replace(binding.fragmentContainer.id, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish() // Menutup halaman dan kembali ke halaman sebelumnya
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
