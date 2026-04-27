@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExaudiApps">
         <activity
+            android:name=".pertemuan7.SevenActivity"
+            android:exported="false" />
+        <activity
             android:name=".pertemuan6.AuthActivity"
             android:exported="false" />
         <activity
@@ -19,7 +22,7 @@
             android:exported="false" />
         <activity
             android:name=".pertemuan4.FourthActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".pertemuan3.ThirdResultctivity"
             android:exported="false" />

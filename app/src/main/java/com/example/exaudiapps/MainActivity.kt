@@ -12,7 +12,11 @@ import com.example.exaudiapps.databinding.ActivityFourthBinding
 import com.example.exaudiapps.databinding.ActivityMainBinding
 import com.example.exaudiapps.databinding.ActivityThirdBinding
 import com.example.exaudiapps.pertemuan2.SecondActivity
+import com.example.exaudiapps.pertemuan3.ThidActivity
 import com.example.exaudiapps.pertemuan4.FourthActivity
+import com.example.exaudiapps.pertemuan5.FifthActivity
+import com.example.exaudiapps.pertemuan6.AuthActivity
+import com.example.exaudiapps.pertemuan7.SevenActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
@@ -26,14 +30,27 @@ class MainActivity : AppCompatActivity() {
 
         val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
-        binding.btnToFourth.setOnClickListener {
+        binding.btnP2.setOnClickListener {
+            startActivity(Intent(this, SecondActivity::class.java))
+        }
+        binding.btnP3.setOnClickListener {
+            startActivity(Intent(this, ThidActivity::class.java))
+        }
+        binding.btnP4.setOnClickListener {
             val intent = Intent(this, FourthActivity::class.java)
-
             intent.putExtra("name", "Politeknik Caltex Riau")
             intent.putExtra("from", "Rumbai")
             intent.putExtra("age", 25)
-
             startActivity(intent)
+        }
+        binding.btnP5.setOnClickListener {
+            startActivity(Intent(this, FifthActivity::class.java))
+        }
+        binding.btnP6.setOnClickListener {
+            startActivity(Intent(this, AuthActivity::class.java))
+        }
+        binding.btnP7.setOnClickListener {
+            startActivity(Intent(this, SevenActivity::class.java))
         }
         binding.bntLogout.setOnClickListener {
             MaterialAlertDialogBuilder(this)
