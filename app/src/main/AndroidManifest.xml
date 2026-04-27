@@ -11,36 +11,57 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExaudiApps">
+
+        <activity
+            android:name=".pertemuan5.VideoActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".pertemuan5.WebViewActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".pertemuan5.FifthActivity"
+            android:exported="false" />
+
         <activity
             android:name=".pertemuan7.SevenActivity"
             android:exported="false" />
         <activity
             android:name=".pertemuan6.AuthActivity"
             android:exported="false" />
+
+        <!-- SplashScreenActivity sebagai LAUNCHER -->
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.ExaudiApps">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+
         <activity
             android:name=".pertemuan4.FourthActivity"
             android:exported="false" />
         <activity
             android:name=".pertemuan3.ThirdResultctivity"
             android:exported="false" />
+
         <activity
             android:name=".pertemuan2.SecondActivity"
             android:exported="false" />
+
         <activity
             android:name=".pertemuan3.ThidActivity"
             android:exported="false" />
-        <activity
-            android:name=".SplashScreenActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
     </application>
 
 </manifest>

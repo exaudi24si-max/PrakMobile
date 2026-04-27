@@ -16,21 +16,36 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_second)
+        
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        // Inisialisasi komponen
+
+        // === LOGIKA DARI BELAJARKOTLIN.KT PINDAH KE SINI ===
+        val angka = 15
+        Log.d("BelajarKotlin", "hasil dari 15 + 10 = ${angka + 10}")
+
+        val nilai = 10
+        if (nilai % 2 == 0) {
+            Log.d("BelajarKotlin", "Bilangan Genap")
+        } else {
+            Log.d("BelajarKotlin", "Bilangan Ganjil")
+        }
+
+        val kampusKu: Array<String> = arrayOf("Kampus", "Politeknik", "Caltex", "Riau")
+        for (kampus in kampusKu) {
+            Log.d("BelajarKotlin", "Nama Kampus: $kampus")
+        }
+        // =================================================
+
         val inputNama: EditText = findViewById(R.id.inputNama)
         val btnSubmit: Button = findViewById(R.id.btnSubmit)
 
         btnSubmit.setOnClickListener {
-            //Mengambil value dari inputNama dan menampilkan di Logcat
             val nama = inputNama.text
-            Log.e("Klik btnSubmit","Tombol berhasil di tekan. Isi dari inputNama = $nama")
-
-            Toast.makeText(this, "Anda telah melakukan klik pada tombol Submit", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Halo $nama!", Toast.LENGTH_SHORT).show()
         }
     }
 }

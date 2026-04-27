@@ -1,21 +1,30 @@
 package com.example.exaudiapps.pertemuan5
 
+import android.net.Uri
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.MediaController
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.exaudiapps.R
+import com.example.exaudiapps.databinding.ActivityVideoBinding
 
 class VideoActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityVideoBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_video)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        binding = ActivityVideoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // 1. Link Video (Contoh video sampel MP4)
+        val videoUrl = "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
+        val uri = Uri.parse(videoUrl)
+        binding.videoView.setVideoURI(uri)
+
+        // 2. Tambahkan Controller (Tombol Play, Pause, Stop)
+        val mediaController = MediaController(this)
+        mediaController.setAnchorView(binding.videoView)
+        binding.videoView.setMediaController(mediaController)
+
+        // 3. Jalankan Video
+        binding.videoView.start()
     }
 }
