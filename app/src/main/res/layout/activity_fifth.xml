@@ -27,8 +27,8 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="24dp"
         android:clipToPadding="false"
+        android:padding="24dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -40,23 +40,23 @@
                 android:id="@+id/btnVideoView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Buka VideoView"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="8dp"
+                android:text="Buka VideoView" />
 
             <Button
                 android:id="@+id/btnWebView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Buka WebView"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="16dp"
+                android:text="Buka WebView" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Silahkan copy-paste teks ini yang banyak supaya efek scroll-nya terasa lek!"
-                android:textSize="18sp"
                 android:layout_marginTop="16dp"
-                android:lineSpacingExtra="8dp" />
+                android:lineSpacingExtra="8dp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Silahkan copy-paste teks ini yang banyak supaya efek scroll-nya terasa lek!"
+                android:textSize="18sp" />
 
         </LinearLayout>
 

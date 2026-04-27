@@ -16,30 +16,29 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_splash_screen)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        //Kode ini harus selalu dipanggil saat butuh akses "user_pref"
         val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
-
-        //Kondisi jika isLogin bernilai true
         val isLogin = sharedPref.getBoolean("isLogin", false)
-        if (isLogin) {
-            //Panggil Intent untuk ke MainActivity
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
 
-        }
         lifecycleScope.launch {
-            delay(2000) //simulasi pengambilan data selama 2 detik
-
-            var intent = Intent(this@SplashScreenActivity, AuthActivity::class.java)
-            startActivity(intent)
-            finish()
+            if (isLogin) {
+                // Sudah login -> langsung pindah, tanpa delay (splash tidak terlihat)
+                val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                // Belum login -> tampilkan splash dulu 2 detik
+                delay(2000)
+                val intent = Intent(this@SplashScreenActivity, AuthActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
     }
 }

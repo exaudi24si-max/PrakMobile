@@ -24,16 +24,18 @@
 
         <activity
             android:name=".pertemuan5.FifthActivity"
-            android:exported="true">
+            android:exported="false" />
+
+        <!-- SplashScreenActivity sebagai LAUNCHER -->
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.ExaudiApps">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".pertemuan6.AuthActivity"
-            android:exported="false" />
 
         <activity
             android:name=".MainActivity"
@@ -56,13 +58,8 @@
             android:exported="false" />
 
         <activity
-            android:name=".SplashScreenActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".pertemuan6.AuthActivity"
+            android:exported="false" />
 
     </application>
 
